@@ -1,9 +1,551 @@
+# Inkabot Robotics — Professional Website Starter
+
+A modern static site ready for GitHub Pages. Includes:
+
+* Parallax scrolling hero images
+* Smooth scrolling navigation
+* Multilingual system (JSON based)
+* Photo gallery grid
+* News section
+* Sponsors section
+* Responsive design
+* Easy to customize
+
+---
+
+# Project structure
+
+```
+inkabot-site/
+
+ index.html
+ style.css
+ script.js
+
+ /images
+    hero1.jpg
+    hero2.jpg
+    hero3.jpg
+    logo.png
+
+ /translations
+    fr.json
+    en.json
+    es.json
+```
+
+You can replace the images later with your own photos.
+
+---
+
+# index.html
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>My page</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inkabot Robotics</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-  <h1>Hello world</h1>
+
+<header>
+
+<nav class="navbar">
+
+<div class="brand">INKABOT</div>
+
+<ul class="menu">
+
+<li><a href="#home" data-i18n="menu.home"></a></li>
+<li><a href="#team" data-i18n="menu.team"></a></li>
+<li><a href="#gallery" data-i18n="menu.gallery"></a></li>
+<li><a href="#news" data-i18n="menu.news"></a></li>
+<li><a href="#sponsors" data-i18n="menu.sponsors"></a></li>
+<li><a href="#contact" data-i18n="menu.contact"></a></li>
+
+</ul>
+
+<select id="languageSwitcher">
+<option value="fr">FR</option>
+<option value="en">EN</option>
+<option value="es">ES</option>
+</select>
+
+</nav>
+
+</header>
+
+
+<!-- HERO PARALLAX -->
+
+<section id="home" class="hero">
+
+<div class="parallax-layer bg1"></div>
+<div class="parallax-layer bg2"></div>
+
+<div class="hero-content">
+
+<img src="images/logo.png" class="logo">
+
+<h1 data-i18n="home.title"></h1>
+<p data-i18n="home.subtitle"></p>
+
+</div>
+
+</section>
+
+
+<section id="team" class="section">
+
+<h2 data-i18n="team.title"></h2>
+
+<p data-i18n="team.text"></p>
+
+</section>
+
+
+<section id="gallery" class="section">
+
+<h2 data-i18n="gallery.title"></h2>
+
+<div class="gallery">
+
+<img src="images/hero1.jpg">
+<img src="images/hero2.jpg">
+<img src="images/hero3.jpg">
+<img src="images/hero1.jpg">
+<img src="images/hero2.jpg">
+<img src="images/hero3.jpg">
+
+</div>
+
+</section>
+
+
+<section id="news" class="section">
+
+<h2 data-i18n="news.title"></h2>
+
+<div class="news-grid">
+
+<div class="news-card">
+
+<h3>Robot Challenge</h3>
+<p>Inkabot participe à une compétition de robotique.</p>
+
+</div>
+
+<div class="news-card">
+
+<h3>Nouvelle saison</h3>
+<p>Les jeunes ingénieurs construisent leurs nouveaux robots.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="sponsors" class="section">
+
+<h2 data-i18n="sponsors.title"></h2>
+
+<div class="sponsors">
+
+<div class="sponsor">Sponsor 1</div>
+<div class="sponsor">Sponsor 2</div>
+<div class="sponsor">Sponsor 3</div>
+
+</div>
+
+</section>
+
+
+<section id="contact" class="section">
+
+<h2 data-i18n="contact.title"></h2>
+
+<p>Email: inkabot@robotics.club</p>
+
+</section>
+
+
+<footer>
+
+<p>© Inkabot Robotics</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
+```
+
+---
+
+# style.css
+
+```css
+
+body{
+
+margin:0;
+font-family:system-ui;
+background:#0b1120;
+color:white;
+
+}
+
+
+.navbar{
+
+position:fixed;
+top:0;
+width:100%;
+
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(8px);
+
+padding:15px 40px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+z-index:100;
+
+}
+
+.menu{
+
+list-style:none;
+display:flex;
+gap:25px;
+
+}
+
+.menu a{
+
+color:white;
+text-decoration:none;
+font-weight:500;
+
+}
+
+.hero{
+
+height:100vh;
+position:relative;
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+}
+
+.parallax-layer{
+
+position:absolute;
+width:100%;
+height:120%;
+background-size:cover;
+background-position:center;
+
+}
+
+.bg1{
+background-image:url(images/hero1.jpg);
+z-index:-2;
+}
+
+.bg2{
+background-image:url(images/hero2.jpg);
+z-index:-1;
+opacity:0.6;
+}
+
+.hero-content{
+
+z-index:2;
+
+}
+
+.logo{
+
+width:220px;
+margin-bottom:20px;
+
+}
+
+.section{
+
+max-width:1100px;
+margin:auto;
+padding:120px 20px;
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+border-radius:12px;
+
+}
+
+.news-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
+}
+
+.news-card{
+
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+
+}
+
+.sponsors{
+
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+
+}
+
+.sponsor{
+
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+
+}
+
+footer{
+
+padding:40px;
+text-align:center;
+background:#020617;
+
+}
+```
+
+---
+
+# script.js
+
+```javascript
+
+let translations={}
+
+async function loadLanguage(lang){
+
+const res=await fetch(`translations/${lang}.json`)
+translations=await res.json()
+
+applyTranslations()
+
+}
+
+function applyTranslations(){
+
+const elements=document.querySelectorAll("[data-i18n]")
+
+ elements.forEach(el=>{
+
+ const keys=el.dataset.i18n.split('.')
+
+ let text=translations
+
+ keys.forEach(k=>{
+ text=text[k]
+ })
+
+ el.innerText=text
+
+ })
+
+}
+
+
+document.getElementById("languageSwitcher")
+.addEventListener("change",e=>{
+
+loadLanguage(e.target.value)
+
+})
+
+loadLanguage("fr")
+
+
+
+// PARALLAX
+
+window.addEventListener("scroll",()=>{
+
+const scrolled=window.pageYOffset
+
+const bg1=document.querySelector(".bg1")
+const bg2=document.querySelector(".bg2")
+
+bg1.style.transform=`translateY(${scrolled*0.4}px)`
+
+bg2.style.transform=`translateY(${scrolled*0.2}px)`
+
+})
+
+```
+
+---
+
+# translations/fr.json
+
+```json
+{
+"menu":{
+"home":"Accueil",
+"team":"Équipe",
+"gallery":"Galerie",
+"news":"Actualités",
+"sponsors":"Sponsors",
+"contact":"Contact"
+},
+
+"home":{
+"title":"Inkabot Robotics",
+"subtitle":"Une équipe de jeunes ingénieurs passionnés par la robotique"
+},
+
+"team":{
+"title":"Notre équipe",
+"text":"Inkabot est un groupe de jeunes passionnés qui conçoivent, construisent et programment des robots." 
+},
+
+"gallery":{
+"title":"Galerie"
+},
+
+"news":{
+"title":"Actualités"
+},
+
+"sponsors":{
+"title":"Sponsors"
+},
+
+"contact":{
+"title":"Contact"
+}
+}
+```
+
+---
+
+# translations/en.json
+
+```json
+{
+"menu":{
+"home":"Home",
+"team":"Team",
+"gallery":"Gallery",
+"news":"News",
+"sponsors":"Sponsors",
+"contact":"Contact"
+},
+
+"home":{
+"title":"Inkabot Robotics",
+"subtitle":"A young robotics engineering team"
+},
+
+"team":{
+"title":"Our team",
+"text":"Inkabot is a group of young robotics enthusiasts building and programming robots." 
+},
+
+"gallery":{
+"title":"Gallery"
+},
+
+"news":{
+"title":"News"
+},
+
+"sponsors":{
+"title":"Sponsors"
+},
+
+"contact":{
+"title":"Contact"
+}
+}
+```
+
+---
+
+# translations/es.json
+
+```json
+{
+"menu":{
+"home":"Inicio",
+"team":"Equipo",
+"gallery":"Galería",
+"news":"Noticias",
+"sponsors":"Patrocinadores",
+"contact":"Contacto"
+},
+
+"home":{
+"title":"Inkabot Robotics",
+"subtitle":"Un equipo joven de ingeniería robótica"
+},
+
+"team":{
+"title":"Nuestro equipo",
+"text":"Inkabot es un grupo de jóvenes apasionados por la robótica que construyen y programan robots." 
+},
+
+"gallery":{
+"title":"Galería"
+},
+
+"news":{
+"title":"Noticias"
+},
+
+"sponsors":{
+"title":"Patrocinadores"
+},
+
+"contact":{
+"title":"Contacto"
+}
+}
+```
