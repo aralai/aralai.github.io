@@ -1,0 +1,36 @@
+{
+"menu":{
+"home":"Inicio",
+"team":"Equipo",
+"gallery":"Galería",
+"news":"Noticias",
+"sponsors":"Patrocinadores",
+"contact":"Contacto"
+},
+
+"home":{
+"title":"Inkabot Robotics",
+"subtitle":"Un equipo joven de ingeniería robótica"
+},
+
+"team":{
+"title":"Nuestro equipo",
+"text":"Inkabot es un grupo de jóvenes apasionados por la robótica que construyen y programan robots." 
+},
+
+"gallery":{
+"title":"Galería"
+},
+
+"news":{
+"title":"Noticias"
+},
+
+"sponsors":{
+"title":"Patrocinadores"
+},
+
+"contact":{
+"title":"Contacto"
+}
+}

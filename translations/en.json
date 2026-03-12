@@ -1,0 +1,36 @@
+{
+"menu":{
+"home":"Home",
+"team":"Team",
+"gallery":"Gallery",
+"news":"News",
+"sponsors":"Sponsors",
+"contact":"Contact"
+},
+
+"home":{
+"title":"Inkabot Robotics",
+"subtitle":"A young robotics engineering team"
+},
+
+"team":{
+"title":"Our team",
+"text":"Inkabot is a group of young robotics enthusiasts building and programming robots." 
+},
+
+"gallery":{
+"title":"Gallery"
+},
+
+"news":{
+"title":"News"
+},
+
+"sponsors":{
+"title":"Sponsors"
+},
+
+"contact":{
+"title":"Contact"
+}
+}
